@@ -1,17 +1,20 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables    ../resources/env_vars.py
+Resource    ../resources/config/Variables.resource
+Resource    ../resources/fixtures/BaseTests.resource
 
-*** Variables ***
 
-${URL}        https://www.google.com
+Suite Setup         BaseTests.Suite Setup
+Suite Teardown      BaseTests.Suite Teardown
+Test Setup          BaseTests.Test Setup
+Test Teardown       BaseTests.Test Teardown
+
 
 *** Test Cases ***
-Ouvrir Google
-    Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window
-    Title Should Be    Google
-    Close Browser
+Ouvrir Orange
+
+    Title Should Be    OrangeHRM
 Test Variable
-    Log To Console    USER=${USER_NAME}
-    Log To Console    PASSWORD=${PASSWORD}
+    Log To Console    COMPTE=${COMPTE}
+
+    
