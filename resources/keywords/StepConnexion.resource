@@ -34,7 +34,7 @@ Verifier Connexion Input Vide
         IF    '${input_value}' == ''
             ${input_name_upper}    Convert To Upper Case    ${input_name}
             ${message_locator}    PageConnexion.Get Required Message    ${input_name_upper}
-            Wait Until Element Contains    ${message_locator}    Required
+            Should Be Equal As Strings    ${message_locator}    Required
         END
     END
 

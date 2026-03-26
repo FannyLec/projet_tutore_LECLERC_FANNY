@@ -31,7 +31,7 @@ Se Connecter Compte Invalide
 Se Connecter Sans Compte
     [Documentation]    Se Connecter Compte Vide
     [Tags]    test_negative
-    &{compte_vide}    Create Dictionary    username=""    password=""
+    &{compte_vide}    Create Dictionary    username=    password=
     StepConnexion.Se Connecter    ${compte_vide}
     StepConnexion.Verifier Connexion Input Vide     ${compte_vide}
     ${is_connected}    StepConnexion.Is Connected
