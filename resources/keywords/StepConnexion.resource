@@ -3,6 +3,9 @@ Documentation       Step Definitions Connexion
 Resource            ../resources/pages/PageConnexion.resource
 Library    String
 
+*** Variables ***
+${LOCATOR_HEADER_BAR}    //*[@class="oxd-topbar-header"]
+
 *** Keywords ***
 Se Connecter
     [Documentation]    Se Connecter
@@ -36,7 +39,8 @@ Verifier Connexion Input Vide
     END
 
 Is Connected
-    ${status}    Run Keyword And Return Status    BasePages.Check Connection
+    ${status}=    Run Keyword And Return Status
+    ...    Page Should Contain Element    ${LOCATOR_HEADER_BAR}
     RETURN    ${status}
 
 Se Deconnecter

@@ -19,8 +19,10 @@ Rechercher Employe Par Nom
 Supprimer Employe
     [Arguments]    ${employee}
     ${firstName}    PageListEmploye.Get Cell Firstname
+    Log To Console    Supprimer employe : ${firstname}
+    Log To Console    Supprimer employe2 : ${employee}[firstName]
     ${lastName}    PageListEmploye.Get Cell Lastname
-    IF    ${firstName} == ${employee}[firstName] and ${lastName}==${employee}[lastName]
+    IF    '${firstName}' == '${employee}[firstName]' and '${lastName}'=='${employee}[lastName]'
         PageListEmploye.Delete Employee
         PageListEmploye.Check Modal
         PageListEmploye.Confirm Delete

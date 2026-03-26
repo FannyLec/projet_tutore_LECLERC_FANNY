@@ -1,8 +1,10 @@
 *** Settings ***
 Resource    BasePages.resource
+Library    String
 
 *** Variables ***
-${URL}    web/index.php/pim/viewEmployeeList
+${URL_LIST}    web/index.php/pim/viewEmployeeList
+${LOCATOR_ITEM_MENU}    //nav[@aria-label="Topbar Menu"]//li[2]
 ${LOCATOR_SEARCH_TITLE}    //h5[text()="Employee Information"]
 ${LOCATOR_INPUT_SEARCH_BYNAME}    //label[@class="oxd-label" and text()="Employee Name"]/../..//input
 ${LOCATOR_BUTTON_SEARCH}    //button[@type="submit"]
@@ -14,8 +16,9 @@ ${LOCATOR_BUTTON_CONFIRM_DELETE}    //*[@role="document"]//i/..
 
 *** Keywords ***
 Go To ListEmployee Page
-    BasePages.Go to Page    ${URL}
-    Wait Until Page Contains Element    ${LOCATOR_SEARCH_TITLE}     timeout=10s
+    BasePages.Go to Page    ${URL_LIST}
+    Click Element    ${LOCATOR_ITEM_MENU}
+    Wait Until Page Contains Element    ${LOCATOR_SEARCH_TITLE}     timeout=20s
 
 Get Page Title Text
     ${actual_title}    Get Text    ${LOCATOR_SEARCH_TITLE} 
@@ -30,11 +33,15 @@ Search employee
 
 Get Cell Firstname
     Scroll Element Into View    ${LOCATOR_CELL_FIRSTNAME}
+    Wait Until Element Contains    ${LOCATOR_CELL_FIRSTNAME}    John
     ${firstName}    Get Text    ${LOCATOR_CELL_FIRSTNAME}
+    ${firstName}=    Replace String    ${firstName}    '    ${EMPTY}
+    Log To Console    Get name : ${firstname}
     RETURN    ${firstName}
 
 Get Cell Lastname
     ${lastName}    Get Text    ${LOCATOR_CELL_LASTNAME} 
+    ${lastName}=     Replace String    ${lastName}     '    ${EMPTY}
     RETURN    ${lastName}
 
 Delete Employee

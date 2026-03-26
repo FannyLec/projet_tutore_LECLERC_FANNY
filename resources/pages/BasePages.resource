@@ -16,6 +16,7 @@ Check Connection
     SeleniumLibrary.Wait Until Page Contains Element    ${LOCATOR_HEADER_BAR}
     SeleniumLibrary.Wait Until Location Does Not Contain    /login
 
+
 Logout
     SeleniumLibrary.Click Element    ${LOCATOR_DROPDOWN_USER}
     SeleniumLibrary.Wait Until Element Is Visible    ${LOCATOR_LOGOUT_ITEM}

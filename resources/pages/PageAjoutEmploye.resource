@@ -8,6 +8,8 @@ ${LOCATOR_INPUT_FIRSTNAME}    //input[@name="firstName"]
 ${LOCATOR_INPUT_LASTNAME}    //input[@name="lastName"]
 ${LOCATOR_MESSAGE_REQUIRED}    /../../span
 ${LOCATOR_BUTTON_SAVE}    //button[@type="submit"]
+${LOCATOR_MESSAGE_ID}    //label[@class="oxd-label"]/../../span
+${LOCATOR_INPUT_ID}    //label[@class="oxd-label"]/../..//input
 
 *** Keywords ***
 
@@ -36,3 +38,6 @@ Get required message
 Save Change
     Wait Until Element Is Visible    ${LOCATOR_BUTTON_SAVE}
     SeleniumLibrary.Click Element    ${LOCATOR_BUTTON_SAVE}  
+
+Clear Id Input
+    Clear Element Text    ${LOCATOR_INPUT_ID}

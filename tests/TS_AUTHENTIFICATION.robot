@@ -24,8 +24,9 @@ Se Connecter Compte Invalide
     [Tags]    test_negative
     &{compte_invalide}    Create Dictionary    username=123    password=123
     StepConnexion.Se Connecter    ${compte_invalide}
-    StepConnexion.Verifier Connexion Invalide
-    Should Not Be True    StepConnexion.Is Connected
+    StepConnexion.Verifier Connexion Input Invalide
+    ${is_connected}    StepConnexion.Is Connected
+    Should Not Be True    ${is_connected}
 
 Se Connecter Sans Compte
     [Documentation]    Se Connecter Compte Vide
@@ -33,7 +34,8 @@ Se Connecter Sans Compte
     &{compte_vide}    Create Dictionary    username=""    password=""
     StepConnexion.Se Connecter    ${compte_vide}
     StepConnexion.Verifier Connexion Input Vide     ${compte_vide}
-    Should Not Be True    StepConnexion.Is Connected
+    ${is_connected}    StepConnexion.Is Connected
+    Should Not Be True    ${is_connected}
 
 Se déconnecter
     [Documentation]    Se déconnecter

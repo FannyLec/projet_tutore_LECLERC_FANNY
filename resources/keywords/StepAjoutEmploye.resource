@@ -18,7 +18,9 @@ Remplir les champs du formulaire
     Log To Console    Remplir les champs du formulaire pour ajouter un employe
     PageAjoutEmploye.Set FirstName    ${employee}[firstName]
     PageAjoutEmploye.Set LastName    ${employee}[lastName]
+    PageAjoutEmploye.Clear Id Input
     PageAjoutEmploye.Save Change
+
 
 Verifier Succes Ajout Employe
     [Documentation]    Verifier que l'ajout a été un succès  
