@@ -1,22 +1,12 @@
-# projet_tutore_LECLERC_FANNY
+# README
 
-Installation :
-requirements.txt à l'init du rpojet pour l'installation des dépendances
+Ce projet contient l’automatisation des tests de l’application OrangeHRM.
 
-.env.example à copier et enlever example et remplacer user + mdp
+## Documents disponibles
 
-robot.toml pour la base URL et output des log de robot framework
+Avant de commencer, vous trouverez dans ce projet les documents suivants :
 
-git ignore contenant le venv, .env, le dossier output et le cache
-
-Architecture :
-dans resources : env_vars.py pour hcarger mes variables secrètes du .env
-POM : pages object ; steps ; tests
-
-### 1. Activer l'environnement virtuel
-
-Windows : venv\Scripts\activate
-
-### 2. Lancer les tests
-
-robotcode robot tests\
+- **Conception.md** : plan de conception des tests (objectifs, stratégie de tests manuels et automatisés)
+- **fichierExigences_US_CT.xlsx** : exigences métier avec priorisation (ARP), user stories et cas de test associés
+- **Automatisation.md** : étapes d’installation, commandes de lancement des tests et description de l’architecture du projet
+- **Execution.md** : rapport d’exécution des tests et suivi des anomalies
